@@ -68,3 +68,54 @@ return data;
 
 
 
+export async function searchrenndering(rawdata,category,date){
+if (!rawdata) return <div>Loading...</div>;
+else{
+        var perfmatches =[];
+        var allexpense =[];
+        for (var i in rawdata[0].data) {
+          var year = i ; 
+          var yearly = rawdata[0].data;
+          
+          for (var j in yearly[i]) {
+                  var _month  = j;
+                  var monthly = yearly[i][j] ;
+                for (var k in monthly){
+                        var transactions = monthly.transactions;
+                        var expesns = transactions.map((e) => {
+                            if(e.description === category && e.date === date){
+                                var perfmatch = [<div className="expenses">
+                                        <div className="expensename">{e.description}</div>
+                                        <div className="date">{e.date}</div>
+                                        <div className="amount">{e.amount}</div>
+                                </div>];
+                                perfmatches = [...perfmatches, ...perfmatch] }
+
+                            else if(e.description === category || e.date === date){
+                                return(<div className="expenses">
+                                        <div className="expensename">{e.description}</div>
+                                        <div className="date">{e.date}</div>
+                                        <div className="amount">{e.amount}</div>
+                                </div>)  }});
+                        allexpense = [...allexpense, ...expesns]; }
+
+
+                
+                
+        }
+}
+
+        var data = [...perfmatches,...allexpense];
+  return (
+    <>
+        <div className="expensecontainer">
+
+            {data}
+        </div>
+    </>
+  );}}
+
+
+
+
+
