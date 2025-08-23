@@ -1,0 +1,139 @@
+.expensecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin : 20px auto ;
+    background-color: #ffffff;
+    border: 2px solid hsl(204, 3%, 33%);
+    border-radius: 5px;
+    height: 100%;
+    margin-bottom: 5px ;
+
+    padding : 8px;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin : auto auto ;
+    background-color: #ffffff;
+    border: 2px solid hsl(204, 3%, 33%);
+    border-radius: 5px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding : 8px;
+    position: relative;
+    overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+.month{
+    font-size: 2em;
+    padding: 8px;
+    
+    width: 85%;
+    justify-self: left;
+}
+
+.year{
+    font-size: 25px;
+    padding: 8px;
+    width: 5%;
+    justify-self: right;
+}
+
+.expenses {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    height : 2rem;
+    background-color: #ffffff;
+    border : rgb(189, 189, 189) solid 1px;
+    padding: 10px;
+    margin: 1px;
+    border-radius: 5px;
+}
+.expensename {
+    font-size: 1 rem;
+    margin : 6px;
+    width : 70%;
+    height: 1rem ;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.yearmonth {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    justify-content: space-between;
+    width: 95%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.details{
+    width: 95%;
+    padding: 9px;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.budjet, .savings, .spend {
+    font-size: 1.2rem;
+    margin: none;
+}
+.budjet {
+    justify-self: left;
+}
+
+.spend{
+    justify-self: right;
+}
+.savings {
+    justify-self: center;
+}
+
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+
+
+@media (max-width: 600px) {
+   
+
+    .details{
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        flex-direction:column;
+        
+        justify-items: left;
+    }
+    .budjet, .savings, .spend {
+        justify-content: left;
+    }
+    .date{
+        display: none;
+    }
+  
+}
