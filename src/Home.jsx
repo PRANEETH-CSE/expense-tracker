@@ -4,7 +4,7 @@ import Header from './navbar.jsx'
 function Home() {
   return (
     <>
-      <Header />
+      
       <Expenses />
     </>
   )

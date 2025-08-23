@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-   "homepage": "https://github.com/PRANEETH-CSE/expense-tracker/",
-  "scripts": { 
+  "homepage": "https://github.com/PRANEETH-CSE/expense-tracker/",
+  "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite ",
@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "mongoose": "^8.18.0",
     "react": "^19.1.1",
