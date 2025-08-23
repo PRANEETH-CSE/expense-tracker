@@ -19,7 +19,7 @@ function Header(){
     return(
         <>
         <header className="header">
-            <button className="logo"> <Link to= '/'> <img src={reactLogo}/></Link></button>
+            <button className="logo"> <Link to= '/'> <img className='logoo' src={reactLogo}/></Link></button>
             <h6 className='Name'>Expense Tracker</h6>
             <Searchform/>
             {options}
