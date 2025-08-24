@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import Expense from "./schema.js";
 import cors from "cors";
 
-
 const uri = "mongodb+srv://anyone:142007@expenses.l3ftldt.mongodb.net/expenses?retryWrites=true&w=majority";
 
 
@@ -25,22 +24,61 @@ app.use(express.json());
 
 app.get("/api/expenses", async (req, res) => {
   try {
-    const expenses = await Expense.find(); // <-- fetch all documents from "expenses" collection
+    const expenses = await Expense.find(); 
     res.json(expenses);
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch expenses" });
   }
 });
 
-app.post("/api/expenses", async (req, res) => {
-  try {
-    const expense = new Expense(req.body);
-    await expense.save();
-    res.status(201).json(expense);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
+app.put("/api/delete", async (req, res) => {
+   
+    const { year, month, date, category } = req.body;
+
+    const result = await Expense.updateOne(
+      { _id: '68a9efa2f226a2c444649a4b' },
+      {
+        $pull: {
+          [`data.${year}.${month}.transactions`]: {
+            description: String(category),
+            date: String(date),
+          }
+        }
+      }
+    );
+
+    if (result.modifiedCount > 0) {
+      res.json("Deleted successfully")
+    } else {
+      console.log(result);
+      res.json("no matching data found..");
+    }
+  });
+app.put("/api/add", async (req, res) => {
+   
+    const { year, month, date, category,amount } = req.body;
+    console.log(req.body);
+    const result = await Expense.updateOne(
+      { _id: '68a9efa2f226a2c444649a4b' },
+      {
+        $push: {
+          [`data.${year}.${month}.transactions`]: {
+            description: String(category),
+            date: String(date),
+            amount: Number(amount)
+          }
+        }
+      }
+    );
+
+    if (result.modifiedCount > 0) {
+      res.json("Added successfully")
+    } else {
+      console.log(result);
+      res.json("error.Try again");
+    }
+  });
+    
 
 
 run();

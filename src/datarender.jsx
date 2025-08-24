@@ -119,3 +119,79 @@ else{
 
 
 
+export function findexpense(rawdata,category,date){
+
+for (var i in rawdata[0].data) {
+          var year = i ; 
+          var yearly = rawdata[0].data;
+          
+          for (var j in yearly[i]) {
+                  var _month  = j;
+                  var monthly = yearly[i][j] ;
+                for (var k in monthly){
+                        var transactions = monthly.transactions;
+                        var expesns = transactions.map((e) => {
+                            if(e.description === category && e.date === date){
+                                    console.log("found"); 
+                                return([category,date,e.amount])}
+                            else{return (0)}})
+
+
+                
+                
+        }}}}
+
+function findyeardate(date) {
+  date = String(date);
+  var allmonth = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  var yeardate = date.split("-");
+  var year = yeardate[0];
+  var monthnum = Number(yeardate[1]);
+  var month = allmonth[monthnum - 1];
+  return [year, month];
+}
+
+export async function deletedata(date, category) {
+  const [year, month] = findyeardate(date);
+
+  const res = await fetch(`http://localhost:5000/api/delete`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      category,
+      date,
+      year,
+      month,
+      
+    })
+  });
+  
+  const data = await res.json();
+  return (await data) ;
+}
+
+
+export async function adddata(date, category,amount) {
+  const [year, month] = findyeardate(date);
+  
+  const res = await fetch(`http://localhost:5000/api/add`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      category,
+      date,
+      year,
+      month,
+      amount 
+      
+    })
+  });
+  
+  const data = await res.json();
+  
+  return (await data) ;
+}
+
