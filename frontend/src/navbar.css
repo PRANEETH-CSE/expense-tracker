@@ -4,8 +4,9 @@
 
 .header{
     width: 100%;
+    color: #f0f0f0;
     position: fixed;
-    background-color: aqua;
+    background-color: rgba(7, 22, 22, 0.211);
     margin: 0px;
     top: 0;
     left: 0;
@@ -49,13 +50,13 @@
     cursor: pointer;
 }
 .searsubmit{
-    height: 30px;
+    height: 32px;
     border-left: #000000 solid 1px;
     width: auto;
     padding: 1px 5px;
     border-radius: 0 5px 5px 0 ;
     border: none;
-    background-color: #f0f0f0;
+    background-color: #d0cbcb;
     cursor: pointer;
 }
 
@@ -91,18 +92,21 @@
 
 .options{
     padding: 5px;
-    color: #000000;
+    color: #c2c1c1;
     text-decoration: none;
     margin: 20px;
     cursor: pointer;
+    border: white solid 1px;
     border-radius: 5px;
-    background-color: aqua;
+    background-color: transparent;
+    padding-left: 3px;
+    padding-right: 3px;
     transition: all 0.2s ease-in-out;
 }
 
 .options:hover{
     scale: 1.1;
-    background-color: rgb(61, 218, 218);
+    background-color: rgba(192, 192, 192, 0.642);
 }
 
 select {

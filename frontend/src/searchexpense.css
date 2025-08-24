@@ -1,0 +1,11 @@
+.expensecontainer{
+    background-image: url('./assets/bckgr.png'); 
+    background-size: cover;      
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;  
+}
+.expenses{
+    color:aliceblue;
+    background-color: transparent;
+}

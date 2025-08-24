@@ -8,6 +8,7 @@ function Delete() {
     var date;
 
     async function deletematch(e){
+            e.preventDefault();
             var res = await deletedata(date,description);
             setresult(await res);
             

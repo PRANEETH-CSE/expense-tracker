@@ -4,7 +4,7 @@
     align-items: center;
     width: 50%;
     margin : 20px auto ;
-    background-color: #ffffff;
+    background-color: transparent;
     border: 2px solid hsl(204, 3%, 33%);
     border-radius: 5px;
     height: 100%;
@@ -22,7 +22,7 @@
     width: 90%;
     padding: 10px;
     margin : auto auto ;
-    background-color: #ffffff;
+    background-color: #ffffff00;
     border: 0.4px solid hsl(204, 3%, 33%);
     border-radius: 5px;
     
@@ -38,7 +38,7 @@
 .amount,.date{
     width: 50%;}
 
-.submit{
+.submi{
     width: 100%;
     height: 35px;
     margin-top: 10px;
@@ -47,4 +47,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+.submi:hover{
+    background-color: rgb(103, 187, 103);
 }

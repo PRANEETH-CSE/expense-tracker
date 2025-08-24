@@ -44,7 +44,7 @@ function Add() {
                 <input type="date" placeholder='date' className='input ' onChange={(e) => (date = e.target.value)} id="date" name="date" required />
                 </label>
 
-                <button className='submit' onClick= {(e) => addmatch(e)} type="submit">Add Expense</button>
+                <button className='submi' onClick= {(e) => addmatch(e)} type="submit">Add Expense</button>
             </form>
             <h6>{result}</h6>
         </div>
