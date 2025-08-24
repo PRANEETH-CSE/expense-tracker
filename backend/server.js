@@ -1,7 +1,7 @@
-import express from "express";
-import mongoose from "mongoose";
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
 import Expense from "./schema.js";
-import cors from "cors";
 
 const uri = "mongodb+srv://anyone:142007@expenses.l3ftldt.mongodb.net/expenses?retryWrites=true&w=majority";
 
