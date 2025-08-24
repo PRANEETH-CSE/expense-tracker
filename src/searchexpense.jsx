@@ -2,7 +2,6 @@ import { useSearchParams } from "react-router-dom";
 import {useState,useEffect} from 'react';
 import {fetchdata,searchrenndering} from './datarender';
 
-import rawdata from '../finance.json';
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
