@@ -1,7 +1,7 @@
 
 export async function fetchdata() {
   try {
-    const res = await fetch("http://localhost:5000/api/expenses");
+    const res = await fetch("https://expense-tracker-1-re0a.onrender.com/api/expenses");
     const data = await res.json();
     return data; // ✅ directly return the data
   } catch (err) {
@@ -157,7 +157,7 @@ function findyeardate(date) {
 export async function deletedata(date, category) {
   const [year, month] = findyeardate(date);
 
-  const res = await fetch(`http://localhost:5000/api/delete`, {
+  const res = await fetch(`https://expense-tracker-1-re0a.onrender.com/api/delete`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -177,7 +177,7 @@ export async function deletedata(date, category) {
 export async function adddata(date, category,amount) {
   const [year, month] = findyeardate(date);
   
-  const res = await fetch(`http://localhost:5000/api/add`, {
+  const res = await fetch(`https://expense-tracker-1-re0a.onrender.com/api/add`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
