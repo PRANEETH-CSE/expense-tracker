@@ -1,6 +1,7 @@
 import './showexpense.css';
 import { useEffect,useState } from 'react';
 import {fetchdata,renndering} from './datarender';
+import Load from './loadanimation';
 
 
 
@@ -16,8 +17,18 @@ function Expenses(){
 };
 loadData();
 }, []);
+if (!final){
+  return (<Load/>);
+  
+}
+else{
 
-return(<>{final}</>)
+  return(<>
+  <div className="fullcontain">{final}</div>
+  </>
+    
+  )
+}
 
 }
 

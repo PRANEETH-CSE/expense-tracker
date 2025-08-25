@@ -1,0 +1,61 @@
+.locontain{
+    margin: 35vh  25vw;
+
+}
+
+
+
+@keyframes letter-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes letter-glow {
+  0%{
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.604);
+  }
+  50% {
+    text-shadow: 
+      0 0 50px rgb(121, 60, 201), 
+      0 0 40px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+  }
+}
+
+.loading-text {
+  font-size: 3rem;
+  font-weight: bold;
+  
+  background-clip: text;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-letter {
+  animation: 
+    letter-bounce 1.4s ease-in-out infinite,
+    letter-glow 2s ease-in-out infinite;
+}
+.L{animation-delay: 10ms;}
+.O{animation-delay: 40ms;}
+.A{animation-delay: 60ms;}
+.D{animation-delay: 90ms;}
+.I{animation-delay: 60ms;}
+.N{animation-delay: 40ms;}
+.G{animation-delay: 10ms;}
+.dot1{animation-delay: 50ms;}
+.dot2{animation-delay: 80ms;}
+.dot3{animation-delay: 70ms;}
+
+
+

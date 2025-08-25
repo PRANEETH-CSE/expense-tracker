@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import {useState,useEffect} from 'react';
 import {fetchdata,searchrenndering} from './datarender';
-
+import Load from './loadanimation';
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
@@ -20,12 +20,16 @@ function SearchPage() {
 loadData();
 }, []);
 
-    
-  return (
-    <>
-        {final}
-    </>
-  );
+if (!final){
+  return (<Load/>);
+  
+}
+else{
+
+  return(<>
+  <div className="fullcontain">{final}</div>
+  </>)
+}
 }
 
 export default SearchPage;
