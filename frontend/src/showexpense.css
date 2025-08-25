@@ -1,7 +1,7 @@
 .fullcontain {
   background-image: url('./assets/bckgr.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: repeat;
   background-position: center;
   min-height: 100vh;
   width: 100%;
@@ -24,6 +24,7 @@
     padding : 8px;
     padding-bottom: 35px;
     position: relative;
+    box-shadow: 0 0 15px #0ff;
 }
 
 
@@ -38,6 +39,7 @@
     
     background: transparent;
     border: 2px solid hsl(204, 3%, 33%);
+    
     border-radius: 5px;
     
     padding : 8px;
@@ -63,7 +65,8 @@
 }
 
 .amount{
-    justify-items: right;
+    display: flex;
+    justify-content: right;
 }
 .expenses {
     display: flex;
@@ -77,6 +80,7 @@
     border : rgb(189, 189, 189) solid 1px;
     padding: 10px;
     margin: 1px;
+    margin-bottom: 5px;
     
     border-radius: 5px;
 }
@@ -117,6 +121,7 @@
 }
 
 .spend{
+
     justify-self: right;
 }
 .savings {

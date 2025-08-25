@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import {useState,useEffect} from 'react';
 import {fetchdata,searchrenndering} from './datarender';
 import Load from './loadanimation';
+import './searchexpense.css' 
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
