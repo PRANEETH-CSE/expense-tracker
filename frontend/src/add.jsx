@@ -1,6 +1,7 @@
 import './add.css';
 import { useState } from 'react';
 import {adddata } from './datarender'
+import {motion} from 'framer-motion'
 
 function Add() {
     const [result,setresult] = useState('');
@@ -18,6 +19,12 @@ function Add() {
 
     
     return (
+        <motion.div initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{ opacity:0 }}
+    transition={{duration:3}}>
+
+    
         <div className="edit-container">
             <h2>Add Expense</h2>
             <form className='form'>
@@ -48,6 +55,8 @@ function Add() {
             </form>
             <h6>{result}</h6>
         </div>
+        
+    </motion.div>
     );
 }
 export default Add;

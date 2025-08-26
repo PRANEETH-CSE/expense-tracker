@@ -1,28 +1,33 @@
 
+import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+// const URL = 'https://expense-tracker-1-re0a.onrender.com';
+const URL = 'https://expense-tracker-1-re0a.onrender.com';
+
 export async function fetchdata() {
   try {
-    const res = await fetch("https://expense-tracker-1-re0a.onrender.com/api/expenses");
+    const res = await fetch(`${URL}/api/expenses`);
     const data = await res.json();
-    return data; // ✅ directly return the data
+    return data;
   } catch (err) {
     console.error("Error fetching expenses:", err);
     throw err;
   }
 }
 
-export async function renndering(rawdata){
-if (!rawdata) return <div>Loading...</div>;
-else{
-        var clore;
-        var monthlydetails=[];
-        for (var i in rawdata[0].data) {
-          var year = i ; 
-          var yearly = rawdata[0].data;
-          
-          for (var j in yearly[i]) {
-                  var _month  = j;
-                  var monthly = yearly[i][j] ;
-                  var monthlyexpense = [];
+export async function renndering(rawdata,navigate){
+  if (!rawdata) return <div>Loading...</div>;
+  else{
+    var clore;
+    var monthlydetails=[];
+    for (var i in rawdata[0].data) {
+      var year = i ; 
+      var yearly = rawdata[0].data;
+      
+      for (var j in yearly[i]) {
+        var _month  = j;
+        var monthly = yearly[i][j] ;
+        var monthlyexpense = [];
                   for (var k in monthly){
                           var allexpense = [];
                           var _budget = monthly.budget;
@@ -36,7 +41,7 @@ else{
                           
                           var transactions = monthly.transactions;
                           var expesns = transactions.map((e) => {
-                                  return(<div className="expenses">
+                                  return(<div onClick={() => navigate("/edit")} className="expenses">
                                         <div className="expensename">{e.description}</div>
                                         <div className="date">{e.date}</div>
                                         <div className="amount">{e.amount}</div>
@@ -66,7 +71,9 @@ var data = monthlydetails ;
 return data;
         }}
 
+export function editnavigate(){
 
+}
 
 export async function searchrenndering(rawdata,category,date){
 if (!rawdata) return <div>Loading...</div>;
@@ -157,7 +164,7 @@ function findyeardate(date) {
 export async function deletedata(date, category) {
   const [year, month] = findyeardate(date);
 
-  const res = await fetch(`https://expense-tracker-1-re0a.onrender.com/api/delete`, {
+  const res = await fetch(`${URL}/api/delete`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -177,7 +184,7 @@ export async function deletedata(date, category) {
 export async function adddata(date, category,amount) {
   const [year, month] = findyeardate(date);
   
-  const res = await fetch(`https://expense-tracker-1-re0a.onrender.com/api/add`, {
+  const res = await fetch(`${URL}/api/add`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

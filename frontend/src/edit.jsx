@@ -1,6 +1,7 @@
 import './edit.css';
 import { useState } from 'react';
 import { fetchdata,findexpense } from './datarender';
+import {motion } from 'framer-motion';
 
 function Edit() {
     var [final,setfinal] = useState('');
@@ -24,6 +25,11 @@ function Edit() {
     }
 
     return (
+        <motion.div initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{ opacity:0 }}
+    transition={{duration:3}}>
+
         <div className="edit-container">
             <h2>Edit Expense</h2>
             <form className='form'>
@@ -67,6 +73,7 @@ function Edit() {
                 <button className='button' type="submit">Save Changes</button>
             </form>
         </div>
+        </motion.div>
     );
 }
 export default Edit;

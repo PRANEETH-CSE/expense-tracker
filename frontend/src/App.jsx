@@ -6,7 +6,6 @@ import AddExpense from './Addexpense'
 import DeleteExpense from './Deleteexpenses'
 import SearchPage from './searchexpense';
 import './App.css'
-
 function App() {
   
 
