@@ -23,24 +23,33 @@ export async function renndering(rawdata,navigate){
     for (var i in rawdata[0].data) {
       var year = i ; 
       var yearly = rawdata[0].data;
+      var monthsd=[];
       
-      for (var j in yearly[i]) {
-        var _month  = j;
+              monthsd = yearly[i];
+      
+              monthsd = sortmonth(monthsd);
+              for (var j of monthsd) {
+                var _month  = j;
+                
         var monthly = yearly[i][j] ;
+        
         var monthlyexpense = [];
                   for (var k in monthly){
                           var allexpense = [];
-                          var _budget = monthly.budget;
-                          var _spend = monthly.spend;
-                          var _savings = _budget - _spend;
+                          var _budget = 4000;
+                          var _spend =0;
+                          var _savings ;
                           
                           if (_savings >0){ clore = "green"; }
                           else{clore = "red"}
                           
                           
                           
-                          var transactions = monthly.transactions;
+                          var transactions = sortdate(monthly.transactions);
                           var expesns = transactions.map((e) => {
+                            _spend+=e.amount;
+                                  
+
                                   return(<div onClick={() => navigate("/edit")} className="expenses">
                                         <div className="expensename">{e.description}</div>
                                         <div className="date">{e.date}</div>
@@ -49,6 +58,7 @@ export async function renndering(rawdata,navigate){
                         allexpense = [...allexpense, ...expesns]; }
                         
                         
+                        _savings = _budget-_spend;
                         monthlyexpense = [<div className="expensecontainer">
                                         <div className="yearmonth">
                                                 <div className="month">{_month}</div>
@@ -71,8 +81,52 @@ var data = monthlydetails ;
 return data;
         }}
 
-export function editnavigate(){
+export function sortdate(transaction){
+           return transaction.sort((a, b) => new Date(a.date) - new Date(b.date));
+}
 
+export function sortamount(transaction){
+           return transaction.sort((a, b) => a.amount - b.amount);
+}
+
+function sortmonth(a){
+  var sorted=[];
+for (var i in a){
+    sorted.push(i);
+}
+
+var final =[];
+const monthOrder = {
+ "January": 1,
+  "February": 2,
+  "March": 3,
+  "April": 4,
+  "May": 5,
+  "June": 6,
+  "July": 7,
+"August": 8,
+ "September": 9,
+ "October": 10,
+  "November": 11,
+  "December": 12
+};
+
+final=sorted.sort((a, b) => monthOrder[a] - monthOrder[b]);
+  return final;
+}
+
+function finddate(date) {
+  date = String(date);
+  var allmonth = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  var yeardate = date.split("-");
+  var year = yeardate[0];
+  var monthnum = Number(yeardate[1]);
+  var month = allmonth[monthnum - 1];
+  var date = yeardate[2];
+  return [date];
 }
 
 export async function searchrenndering(rawdata,category,date){
@@ -88,7 +142,7 @@ else{
                   var _month  = j;
                   var monthly = yearly[i][j] ;
                 for (var k in monthly){
-                        var transactions = monthly.transactions;
+                   var transactions =  sortdate(monthly.transactions);}
                         var expesns = transactions.map((e) => {
                             if(e.description === category && e.date === date){
                                 var perfmatch = [<div className="expenses">
@@ -120,7 +174,54 @@ else{
             {data}
         </div>
     </>
-  );}}
+  );}
+
+export async function sortsearchrenndering(rawdata,category,date){
+if (!rawdata) return <div>Loading...</div>;
+else{
+        var perfmatches =[];
+        var allexpense =[];
+        for (var i in rawdata[0].data) {
+          var year = i ; 
+          var yearly = rawdata[0].data;
+          
+          for (var j in yearly[i]) {
+                  var _month  = j;
+                  var monthly = yearly[i][j] ;
+                for (var k in monthly){
+                   var transactions =  sortamount(monthly.transactions);}
+                        var expesns = transactions.map((e) => {
+                            if(e.description === category && e.date === date){
+                                var perfmatch = [<div className="expenses">
+                                        <div className="expensename">{e.description}</div>
+                                        <div className="date">{e.date}</div>
+                                        <div className="amount">{e.amount}</div>
+                                </div>];
+                                perfmatches = [...perfmatches, ...perfmatch] }
+
+                            else if(e.description === category || e.date === date){
+                                return(<div className="expenses">
+                                        <div className="expensename">{e.description}</div>
+                                        <div className="date">{e.date}</div>
+                                        <div className="amount">{e.amount}</div>
+                                </div>)  }});
+                        allexpense = [...allexpense, ...expesns]; }
+
+
+                
+                
+        }
+}
+
+        var data = [...perfmatches,...allexpense];
+  return (
+    <>
+        <div className="expensecontainer">
+
+            {data}
+        </div>
+    </>
+  );}
 
 
 
@@ -139,7 +240,7 @@ for (var i in rawdata[0].data) {
                         var transactions = monthly.transactions;
                         var expesns = transactions.map((e) => {
                             if(e.description === category && e.date === date){
-                                    console.log("found"); 
+                                     
                                 return([category,date,e.amount])}
                             else{return (0)}})
 

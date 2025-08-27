@@ -22,9 +22,9 @@ function Header(){
             <button className="logo"> <Link to= '/'> <img className='logoo' src={reactLogo}/></Link></button>
             <h6 className='Name'>Expense Tracker</h6>
             <Searchform/>
-            
+            {options}
             <Link className ='options' to="/add">Add</Link> 
-            <Link className ='options' to="/edit">Edit</Link> 
+            {/* <Link className ='options' to="/edit">Edit</Link>  */}
             <Link className ='options' to="/delete">Delete</Link>
         </header>
         <div className="space"></div>

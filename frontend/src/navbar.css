@@ -112,16 +112,16 @@
 select {
  
   margin: 2px;
-  padding: 5px;
+  padding: 1px;
   border-radius: px;
-  border: 1px solid #474747;
-  background-color: #f0f8ff;
-  font-size: 16px;
-  color: #333;
+  /* border: 1px solid #474747; */
+  background-color: transparent;
+  color: #ffffff;
 }
 select:focus {
   outline: none;
-  border-color: #007BFF;
+  background-color: #000000;
+  border: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 

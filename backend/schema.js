@@ -12,7 +12,7 @@ const monthSchema = new mongoose.Schema({
   transactions: [transactionSchema]
 });
 
-const yearSchema = new mongoose.Schema({}, { strict: false }); // or define months explicitly
+const yearSchema = new mongoose.Schema({}, { strict: false }); 
 
 const expenseSchema = new mongoose.Schema({
   data: {
