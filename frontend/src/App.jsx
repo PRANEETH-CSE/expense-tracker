@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
 import Header from "./navbar";
 import Home from './Home'
 import EditExpense from './Editexpense'
@@ -8,17 +9,17 @@ import SearchPage from './searchexpense';
 import './App.css'
 function App() {
   
-
+  const [sort, setsort] = useState(0);
   return (
     <>
     <Router>
-      <Header/>
+      <Header setsort={setsort}/>
       <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/add" element={<AddExpense />} />
+          <Route path="/" element={<Home sorte={sort} />} />
+          <Route path="/add" element={<AddExpense  />} />
           <Route path="/edit" element={<EditExpense />} />
           <Route path="/delete" element={<DeleteExpense />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search" element={<SearchPage sorting={sort} />} />
         </Routes>
     </Router>
     

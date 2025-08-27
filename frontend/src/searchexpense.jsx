@@ -4,7 +4,7 @@ import {fetchdata,searchrenndering,sortsearchrenndering} from './datarender';
 import Load from './loadanimation';
 import './searchexpense.css' 
 
-function SearchPage() {
+function SearchPage({sorting}) {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q"); 
   const category = searchParams.get("category") || "";
@@ -16,16 +16,16 @@ function SearchPage() {
       try {
         const res = await fetchdata();
         var rawdata= await res;
-        setfinal(sortsearchrenndering(rawdata,category,date));}
-      catch (err) {console.error("Error fetching data:", err);}
-};
-loadData();
-}, []);
+        if(sorting == 'date'){
+          setfinal(sortsearchrenndering(rawdata,category,date));}
+          else{
+          setfinal(searchrenndering(rawdata,category,query,date));}
+        }
+      catch (err) {console.error("Error fetching data:", err);}};
+loadData();}, [sorting]);
 
 if (!final){
-  return (<Load/>);
-  
-}
+  return (<Load/>);  }
 else{
 
   return(<>

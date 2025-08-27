@@ -12,7 +12,6 @@ function Add() {
     async function addmatch(e){
             e.preventDefault();
             var res = await adddata(date,description,amount);
-            console.log(await res);
             setresult(await res);
             
     }

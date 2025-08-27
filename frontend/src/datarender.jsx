@@ -50,7 +50,7 @@ export async function renndering(rawdata,navigate){
                             _spend+=e.amount;
                                   
 
-                                  return(<div onClick={() => navigate("/edit")} className="expenses">
+                                  return(<div onClick={() => navigate("/edit" , { state: { category: e.description, date: e.date , amount : e.amount } })} className="expenses">
                                         <div className="expensename">{e.description}</div>
                                         <div className="date">{e.date}</div>
                                         <div className="amount">{e.amount}</div>
@@ -145,7 +145,7 @@ else{
                    var transactions =  sortdate(monthly.transactions);}
                         var expesns = transactions.map((e) => {
                             if(e.description === category && e.date === date){
-                                var perfmatch = [<div className="expenses">
+                                var perfmatch = [<div onClick={() => navigate("/edit" , { state: { category: e.description, date: e.date , amount : e.amount } })} className="expenses">
                                         <div className="expensename">{e.description}</div>
                                         <div className="date">{e.date}</div>
                                         <div className="amount">{e.amount}</div>
@@ -153,7 +153,7 @@ else{
                                 perfmatches = [...perfmatches, ...perfmatch] }
 
                             else if(e.description === category || e.date === date){
-                                return(<div className="expenses">
+                                return(<div onClick={() => navigate("/edit" , { state: { category: e.description, date: e.date , amount : e.amount } })} className="expenses">
                                         <div className="expensename">{e.description}</div>
                                         <div className="date">{e.date}</div>
                                         <div className="amount">{e.amount}</div>
@@ -192,7 +192,7 @@ else{
                    var transactions =  sortamount(monthly.transactions);}
                         var expesns = transactions.map((e) => {
                             if(e.description === category && e.date === date){
-                                var perfmatch = [<div className="expenses">
+                                var perfmatch = [<div onClick={() => navigate("/edit" , { state: { category: e.description, date: e.date , amount : e.amount } })} className="expenses">
                                         <div className="expensename">{e.description}</div>
                                         <div className="date">{e.date}</div>
                                         <div className="amount">{e.amount}</div>
@@ -200,7 +200,7 @@ else{
                                 perfmatches = [...perfmatches, ...perfmatch] }
 
                             else if(e.description === category || e.date === date){
-                                return(<div className="expenses">
+                                return(<div onClick={() => navigate("/edit" , { state: { category: e.description, date: e.date , amount : e.amount } })} className="expenses">
                                         <div className="expensename">{e.description}</div>
                                         <div className="date">{e.date}</div>
                                         <div className="amount">{e.amount}</div>

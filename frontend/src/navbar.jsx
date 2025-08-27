@@ -1,21 +1,24 @@
 import './navbar.css'
 import reactLogo from './assets/react.svg'
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 
 import Searchform from './searchform';
 
-var options =<div className="options">
-                <select id="sort" name="sortby">
-                        <option value="date">sort by</option>
-                        <option value="date">Date</option>
-                        <option value="amount">Amount</option>
-                        
-                </select>
-            </div>;
 
 
 
-function Header(){
+function Header({setsort}){
+
+const location = useLocation();
+var options ='';
+if(location.pathname === '/search'){
+ options =<div className="options">
+  <select onChange={(e) => setsort(e.target.value)} id="sort" name="sortby">
+    <option value="">Sort by</option>
+    <option value="date">Date</option>
+    <option value="amount">Amount</option>
+  </select>
+</div>}
     return(
         <>
         <header className="header">

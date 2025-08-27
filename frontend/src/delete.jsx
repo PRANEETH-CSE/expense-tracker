@@ -43,7 +43,7 @@ function Delete() {
 
                 <button className='submit' onClick ={(e)=>deletematch(e)} type="submit">Delete</button>
             </form>
-        <h6> {result}   </h6>   
+        <h4> {result}   </h4>   
         </div>
         </motion.div>
     );

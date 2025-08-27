@@ -1,0 +1,11 @@
+.fullcontain {
+  background-image: url('./assets/bckgr.png');
+  background-size: contain;
+  background-repeat: repeat-y;
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
+  height: auto;        
+  position: relative;
+  z-index: 0;           
+}

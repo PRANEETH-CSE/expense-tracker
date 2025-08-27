@@ -5,9 +5,9 @@
   background-position: center;
   min-height: 100vh;
   width: 100%;
-  height: auto;          /* allow growth */
+  height: auto;        
   position: relative;
-  z-index: 0;            /* make sure it’s behind */
+  z-index: 0;           
 }
 .expensecontainer {
     
