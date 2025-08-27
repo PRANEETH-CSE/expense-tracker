@@ -70,6 +70,7 @@
 .logo{
     max-width: 50px;
     min-width: 50px;
+    margin-right: 5px;
     padding: 2px;
     background-color: transparent;
     border: none;
@@ -109,12 +110,13 @@
     background-color: rgba(192, 192, 192, 0.642);
 }
 
+.del{margin-right: 35px ;}
+
 select {
  
   margin: 2px;
   padding: 1px;
   border-radius: px;
-  /* border: 1px solid #474747; */
   background-color: transparent;
   color: #ffffff;
 }
@@ -126,9 +128,7 @@ select:focus {
 }
 
 @media screen and (max-width: 600px) {
-    .options {
-        display: none;
-    }
+    
     .Name{
         display: none;
     }
@@ -136,4 +136,8 @@ select:focus {
         width: 80%;
         margin-left: 5px;
     }
+    .searchbtn{
+  width: 20px;   }
+ 
+
 }   

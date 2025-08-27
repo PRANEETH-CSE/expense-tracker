@@ -51,6 +51,7 @@ function Edit({details}) {
     animate={{opacity:1}}
     exit={{ opacity:0 }}
     transition={{duration:1}}>
+        <div className="fullc">
 
         <div className="edit-container">
             <h2>Edit Expense</h2>
@@ -66,7 +67,7 @@ function Edit({details}) {
                 <input type="number" value={amount} onChange={(e)=>{setamount(e.target.value)}} className='input ' id="amount" name="amount" />
                 </label>
 
-                <label className='date' htmlFor="date">Date:
+                <label className='daate' htmlFor="date">Date:
                     
                 <input type="date" value={date} onChange={(e)=>{setdate(e.target.value)}} className='input ' id="date" name="date"  />
                 </label>
@@ -74,6 +75,7 @@ function Edit({details}) {
                 {buttons}
             </form>
             <h4>{final}</h4>
+        </div>
         </div>
         </motion.div>
     );

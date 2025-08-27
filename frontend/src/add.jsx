@@ -23,7 +23,8 @@ function Add() {
     exit={{ opacity:0 }}
     transition={{duration:3}}>
 
-    
+    <div className="fullc">
+
         <div className="edit-container">
             <h2>Add Expense</h2>
             <form className='form'>
@@ -42,10 +43,10 @@ function Add() {
 
                 <label className='amount' htmlFor="amount">Amount:
 
-                <input type="number" placeholder='enter amount..' onChange={(e) => {amount =e.target.value;}} className='input ' id="amount" name="amount" required />
+                <input type="number" placeholder='enter amount..' onChange={(e) => {amount =e.target.value;}} className='input amount ' id="amount" name="amount" required />
                 </label>
 
-                <label className='date' htmlFor="date">Date:
+                <label className='daate' htmlFor="date">Date:
                     
                 <input type="date" placeholder='date' className='input ' onChange={(e) => (date = e.target.value)} id="date" name="date" required />
                 </label>
@@ -55,6 +56,7 @@ function Add() {
             <h6>{result}</h6>
         </div>
         
+    </div>
     </motion.div>
     );
 }

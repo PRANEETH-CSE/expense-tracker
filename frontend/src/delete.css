@@ -44,7 +44,8 @@
     border-radius: 5px;
 }
 
-.amount,.date{
+.amount,.daate{
+    align-items: center;
     width: 50%;}
 
 .submit{
@@ -61,3 +62,25 @@
     background-color: red;
 }
 
+@media (max-width: 600px) {
+    .edit-container {
+        width: 80%;
+       
+    }
+    .amount,.daate{
+        width: 100%;
+    }
+    .fullc{
+        background-image: url('./assets/bckgr.png');
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: top;
+  min-height: 90vh;
+  margin: 0%;
+  width: 100%;
+  height: auto;        
+  position: relative;
+  z-index: 0; 
+    }
+
+}

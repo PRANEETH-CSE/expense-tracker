@@ -12,13 +12,20 @@ function Header({setsort}){
 const location = useLocation();
 var options ='';
 if(location.pathname === '/search'){
- options =<div className="options">
+ options =<><div className="options">
   <select onChange={(e) => setsort(e.target.value)} id="sort" name="sortby">
     <option value="">Sort by</option>
     <option value="date">Date</option>
     <option value="amount">Amount</option>
   </select>
-</div>}
+</div> 
+
+</>}
+
+else{{
+ options =<><Link className ='ad options' to="/add">Add</Link> 
+            {/* <Link className ='options' to="/edit">Edit</Link>  */}
+            <Link className ='del options' to="/delete">Delete</Link> </>}}
     return(
         <>
         <header className="header">
@@ -26,9 +33,7 @@ if(location.pathname === '/search'){
             <h6 className='Name'>Expense Tracker</h6>
             <Searchform/>
             {options}
-            <Link className ='options' to="/add">Add</Link> 
-            {/* <Link className ='options' to="/edit">Edit</Link>  */}
-            <Link className ='options' to="/delete">Delete</Link>
+            
         </header>
         <div className="space"></div>
     </>
